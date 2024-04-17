@@ -22,19 +22,19 @@ function App() {
 
   function handleAddTask(taskData) {
     setTaskState((prevState) => {
+      const taskId = Math.random();
       const newTask = {
         ...taskData,
-        id: Math.random(),
+        id: taskId,
       };
 
       return {
         ...prevState,
+        selectedTask: undefined,
         tasks: [...prevState.tasks, newTask],
       };
     });
   }
-
-  console.log(taskState);
 
   let content;
 
@@ -46,7 +46,7 @@ function App() {
 
   return (
     <main className='app'>
-      <SideBar onStartAddTask={handleTaskAdd} />
+      <SideBar onStartAddTask={handleTaskAdd} tasks={taskState.tasks} />
       {content}
     </main>
   );
