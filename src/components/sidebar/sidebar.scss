@@ -1,0 +1,14 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: 100vh;
+  padding: 24px;
+  margin: 12px;
+  border-radius: 12px;
+
+  Button {
+    margin-top: 12px;
+    width: 50%;
+  }
+}
