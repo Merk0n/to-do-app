@@ -71,7 +71,9 @@ function App() {
     (task) => task.id === taskState.selectedTask
   );
 
-  let content = <SelectedTask task={selectedTask} />;
+  let content = (
+    <SelectedTask task={selectedTask} onDelete={handleDeleteTask} />
+  );
 
   if (taskState.selectedTask === null) {
     content = <NewTask onAdd={handleAddTask} onCancel={handleCancelAddTask} />;

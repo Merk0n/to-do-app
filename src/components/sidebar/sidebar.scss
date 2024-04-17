@@ -1,8 +1,9 @@
 .sidebar {
   display: flex;
   flex-direction: column;
+  block-size: fit-content;
+  min-height: 50vh;
   width: 25%;
-  height: 100vh;
   padding: 24px;
   margin: 12px;
   border-radius: 12px;
@@ -37,9 +38,8 @@
     &:active {
       background-color: #e0e0e0;
     }
-
-    .selected {
-      color: red;
-    }
+  }
+  .selected {
+    border: 2px solid #000;
   }
 }
