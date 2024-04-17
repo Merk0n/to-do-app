@@ -16,7 +16,7 @@ const SelectedTask = ({ task, onDelete }) => {
           <Card.Title className='task-title'>{task.title}</Card.Title>
           <Card.Text className='task-date'>{formattedDate}</Card.Text>
           <Card.Text className='task-description'>{task.description}</Card.Text>
-          <Button onClick={onDelete} variant='secondary'>
+          <Button onClick={onDelete} variant='outline-danger'>
             Delete
           </Button>
         </Card.Body>

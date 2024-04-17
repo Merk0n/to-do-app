@@ -110,11 +110,11 @@ const NewTask = ({ onAdd, onCancel }) => {
           onClick={handleSave}
           type='submit'
           className='m-1'
-          variant='secondary'
+          variant='outline-success'
         >
           Save
         </Button>
-        <Button onClick={onCancel} variant='secondary'>
+        <Button onClick={onCancel} variant='outline-secondary'>
           Cancel
         </Button>
       </div>
