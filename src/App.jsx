@@ -11,11 +11,20 @@ function App() {
     tasks: [],
   });
 
-  function handleTaskAdd() {
+  function handleStartAddTask() {
     setTaskState((prevState) => {
       return {
         ...prevState,
         selectedTask: null,
+      };
+    });
+  }
+
+  function handleCancelAddTask() {
+    setTaskState((prevState) => {
+      return {
+        ...prevState,
+        selectedTask: undefined,
       };
     });
   }
@@ -39,14 +48,14 @@ function App() {
   let content;
 
   if (taskState.selectedTask === null) {
-    content = <NewTask onAdd={handleAddTask} />;
+    content = <NewTask onAdd={handleAddTask} onCancel={handleCancelAddTask} />;
   } else if (taskState.selectedTask === undefined) {
-    content = <MainStart onStartAddTask={handleTaskAdd} />;
+    content = <MainStart onStartAddTask={handleStartAddTask} />;
   }
 
   return (
     <main className='app'>
-      <SideBar onStartAddTask={handleTaskAdd} tasks={taskState.tasks} />
+      <SideBar onStartAddTask={handleStartAddTask} tasks={taskState.tasks} />
       {content}
     </main>
   );

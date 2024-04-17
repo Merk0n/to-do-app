@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import './newtask.scss';
 import { useRef, useState } from 'react';
 
-const NewTask = ({ onAdd }) => {
+const NewTask = ({ onAdd, onCancel }) => {
   const title = useRef();
   const description = useRef();
   const dueDate = useRef();
@@ -114,7 +114,9 @@ const NewTask = ({ onAdd }) => {
         >
           Save
         </Button>
-        <Button variant='secondary'>Cancel</Button>
+        <Button onClick={onCancel} variant='secondary'>
+          Cancel
+        </Button>
       </div>
     </Form>
   );
