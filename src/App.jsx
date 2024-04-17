@@ -4,12 +4,22 @@ import SideBar from './components/sidebar/SideBar';
 import MainStart from './components/MainStart';
 import NewTask from './components/newtask/NewTask';
 import './app.scss';
+import SelectedTask from './components/selectedtask/SelectedTask';
 
 function App() {
   const [taskState, setTaskState] = useState({
     selectedTask: undefined,
     tasks: [],
   });
+
+  function handleSelectTask(id) {
+    setTaskState((prevState) => {
+      return {
+        ...prevState,
+        selectedTask: id,
+      };
+    });
+  }
 
   function handleStartAddTask() {
     setTaskState((prevState) => {
@@ -45,7 +55,11 @@ function App() {
     });
   }
 
-  let content;
+  const selectedTask = taskState.tasks.find(
+    (task) => task.id === taskState.selectedTask
+  );
+
+  let content = <SelectedTask task={selectedTask} />;
 
   if (taskState.selectedTask === null) {
     content = <NewTask onAdd={handleAddTask} onCancel={handleCancelAddTask} />;
@@ -55,7 +69,12 @@ function App() {
 
   return (
     <main className='app'>
-      <SideBar onStartAddTask={handleStartAddTask} tasks={taskState.tasks} />
+      <SideBar
+        onStartAddTask={handleStartAddTask}
+        tasks={taskState.tasks}
+        onSelectTask={handleSelectTask}
+        selectedTaskId={taskState.selectedTask}
+      />
       {content}
     </main>
   );
