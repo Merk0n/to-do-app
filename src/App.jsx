@@ -55,6 +55,18 @@ function App() {
     });
   }
 
+  function handleDeleteTask() {
+    setTaskState((prevState) => {
+      return {
+        ...prevState,
+        selectedTask: undefined,
+        tasks: prevState.tasks.filter(
+          (task) => task.id !== prevState.selectedTask
+        ),
+      };
+    });
+  }
+
   const selectedTask = taskState.tasks.find(
     (task) => task.id === taskState.selectedTask
   );

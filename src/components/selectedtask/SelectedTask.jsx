@@ -11,11 +11,11 @@ const SelectedTask = ({ task }) => {
 
   return (
     <>
-      <Card className='task-card' style={{ width: '18rem' }}>
+      <Card className='task-card'>
         <Card.Body>
-          <Card.Title>{task.title}</Card.Title>
-          <Card.Text>{formattedDate}</Card.Text>
-          <Card.Text>{task.description}</Card.Text>
+          <Card.Title className='task-title'>{task.title}</Card.Title>
+          <Card.Text className='task-date'>{formattedDate}</Card.Text>
+          <Card.Text className='task-description'>{task.description}</Card.Text>
           <Button variant='secondary'>Delete</Button>
         </Card.Body>
       </Card>
